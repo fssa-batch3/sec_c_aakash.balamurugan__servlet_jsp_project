@@ -89,7 +89,7 @@ button:hover {
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" title="password should have atleast of one LowerCase , one UpperCase , one Special Character and a number" required>
                 </div>
                 <button type="submit">Login</button>
             </form>

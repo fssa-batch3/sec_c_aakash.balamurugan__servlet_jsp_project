@@ -45,7 +45,7 @@ public class ReadActiveEventBetweenDate extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			
 			try {
-			    List<Event> eventList =EventService.getAllEventByRange(start, end);
+			    List<Event> eventList =EventService.getActiveEventByRange(start, end);
 			    request.setAttribute("eventList", eventList);  
 			    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/User/ReadEvent.jsp");
 			    dispatcher.forward(request, response);

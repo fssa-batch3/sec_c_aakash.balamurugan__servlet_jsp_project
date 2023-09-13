@@ -25,7 +25,7 @@
 
             <div class="form-group">
                 <label for="event_description">Event Description:</label>
-                <input type="text" class="form-control" id="event_description" name="event_description" required>
+                <textarea type="text" class="form-control" id="event_description" name="event_description" required></textarea>
             </div>
 
             <div class="form-group">

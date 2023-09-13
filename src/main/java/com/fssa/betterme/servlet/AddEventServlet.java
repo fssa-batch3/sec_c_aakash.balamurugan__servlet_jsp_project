@@ -53,7 +53,7 @@ public class AddEventServlet extends HttpServlet {
 			EventHost host = EventHostService.readHostByEmail(email);
 			Event validEvent = new Event(eventName,eventDescription,eventAddress,imgUrl,date,time,price,host);
 			if (EventService.addEvent(validEvent)) {
-			response.sendRedirect("./ReadEvent");
+			response.sendRedirect("ReadAllEvent");
 			}
 		} catch (  EventValidationException | ServiceException e) {
 			out.append(e.getMessage());

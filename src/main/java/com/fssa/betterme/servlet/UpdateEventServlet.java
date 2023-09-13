@@ -66,7 +66,7 @@ public class UpdateEventServlet extends HttpServlet {
 	        try {
 				if(EventService.updateEvent(updatedEvent))
 					out.print("<h1>Sucess</h1>");
-				response.sendRedirect("/Admin/ReadEvent.jsp");
+				response.sendRedirect("ReadAllEvent");
 			} catch ( EventValidationException | ServiceException e) {
 				out.print(e.getMessage());
 			
