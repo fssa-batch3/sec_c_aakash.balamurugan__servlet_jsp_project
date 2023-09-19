@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.betterme.exception.ServiceException;
 import com.fssa.betterme.exception.EventValidationException;
-import com.fssa.betterme.model.EventHost;
+import com.fssa.betterme.model.Trainner;
 import com.fssa.betterme.model.Event;
 import com.fssa.betterme.service.EventHostService;
 import com.fssa.betterme.service.EventService;
@@ -38,7 +38,7 @@ public class AddEventServlet extends HttpServlet {
 	        String dateStr = request.getParameter("date"); 
 	        String timeStr = request.getParameter("time");
 	        double price = Double.parseDouble(request.getParameter("price"));
-	       
+	        String eventabt = request.getParameter("event_About");
 	        String email = request.getParameter("HostEmail");
 	        
 	        
@@ -50,8 +50,8 @@ public class AddEventServlet extends HttpServlet {
 	      
 	       
 		try {
-			EventHost host = EventHostService.readHostByEmail(email);
-			Event validEvent = new Event(eventName,eventDescription,eventAddress,imgUrl,date,time,price,host);
+			Trainner host = EventHostService.readHostByEmail(email);
+			Event validEvent = new Event(eventName,eventabt,eventDescription,eventAddress,date,time,price,imgUrl,host);
 			if (EventService.addEvent(validEvent)) {
 			response.sendRedirect("ReadAllEvent");
 			}

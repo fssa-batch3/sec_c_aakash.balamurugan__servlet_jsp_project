@@ -1,6 +1,7 @@
 package com.fssa.betterme.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,12 +49,16 @@ public class SignupServlet extends HttpServlet {
 	        Gender gender = Gender.valueOf( request.getParameter("gender"));
 	        String password = request.getParameter("password");
 
-	        // Perform user registration logic here (e.g., store in a database)
+	   
 	        User user = new User(username, email,password,mobileNumber ,gender);
 	        
 	     try {
-			UserService.addUser(user);
-			 response.sendRedirect("login.jsp");
+			boolean res =UserService.addUser(user);
+			PrintWriter out = response.getWriter();
+			out.print(res);
+			out.flush();
+			out.close();
+			 
 		} catch (UserValidationException | UserServiceException e) {
 			response.getWriter().append(e.getMessage());
 		}

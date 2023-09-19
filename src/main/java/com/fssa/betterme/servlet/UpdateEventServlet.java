@@ -50,6 +50,7 @@ public class UpdateEventServlet extends HttpServlet {
 	        String timeStr = request.getParameter("time");
 	        double price = Double.parseDouble(request.getParameter("price"));
 	        boolean isActive = request.getParameter("status") == "true";
+	        String eventabt = request.getParameter("eventabt");
 
 	        
 	        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -62,7 +63,7 @@ public class UpdateEventServlet extends HttpServlet {
 	      
 	        
 
-	        Event updatedEvent = new Event(eventId,eventName , eventDescription, eventAddress, imageUrl, date, time, price,isActive);
+	        Event updatedEvent = new Event(eventId,eventName ,eventabt, eventDescription, eventAddress,  date, time, price,imageUrl,isActive);
 	        try {
 				if(EventService.updateEvent(updatedEvent))
 					out.print("<h1>Sucess</h1>");

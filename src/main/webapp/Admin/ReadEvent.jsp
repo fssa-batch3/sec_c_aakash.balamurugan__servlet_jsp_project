@@ -38,13 +38,14 @@
         </thead>
         <tbody>
        <c:forEach items="${eventList}" var="event">
+       
                 <tr>
                     <td>${event.eventName}</td>
                     <td>${event.eventDescription}</td>
     				<td>${event.eventAddress}</td> 
     				<td>   ${event.getEventDate()}<br> ${event.getEventTime()}</td>       
     				<td>${event.getPrice() }</td>        
-    				<td>  <img alt="${event.getEventName()}" src="${event.getImageURL()}" width="100" height="100"></td>
+    				<td>  <img alt="${event.eventName}" src="${event.imageUrl}" width="100" height="100"></td>
   	            <td>
                         <a href=./EditServlet?id=${event.id}>Update</a>
                     </td>

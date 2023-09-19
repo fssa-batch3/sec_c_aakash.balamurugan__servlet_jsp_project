@@ -52,7 +52,7 @@
             <div class="form-group">
                 <label for="img_url">Image URL:</label>
                 <input type="url" class="form-control" id="img_url" name="img_url"
-                       value="<%=event.getImageURL()%>" required>
+                       value="<%=event.getImageUrl()%>" required>
             </div>
 
             <div class="form-group">
@@ -76,9 +76,9 @@
             <div class="form-group">
                 <label for="isActive">isActive:</label>
                 <input type="text" class="form-control" id="isActive" name="isActive" step="0.01"
-                       value="<%=event.getIsActive() %>" disabled required>
+                       value="<%=event.isActive() %>" disabled required>
             </div>
-            <%if(event.getIsActive()== true ){ %>
+            <%if(event.isActive()== true ){ %>
               <div class="form-group text-center pt-3">
                 <a  href="<%=request.getContextPath() %>/DeleteEventServlet?event_id=<%=event.getId()%>" class="btn btn-danger" name="deleteButton">Delete Event</a>
                 <%} %>

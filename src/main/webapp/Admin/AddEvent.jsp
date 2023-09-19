@@ -22,6 +22,11 @@
                 <label for="event_name">Event Name:</label>
                 <input type="text" class="form-control" id="event_name" name="event_name" required>
             </div>
+            
+            <div class="form-group">
+                <label for="event_About">Event About:</label>
+                <textarea type="text" class="form-control" id="event_description" name="event_About" required></textarea>
+            </div>
 
             <div class="form-group">
                 <label for="event_description">Event Description:</label>

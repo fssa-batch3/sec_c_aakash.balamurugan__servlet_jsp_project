@@ -19,7 +19,7 @@
 <a href="../ReadAllEvent">Get events Details</a><br>
 <a href="./ReadEventByDate.jsp">Get events Details by date</a><br>
 <a href="./ReadEventBetweenDates.jsp">Get events Details between date</a>
-
+<a href ="../LogoutServlet">logout</a>
 
 
 </body>

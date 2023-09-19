@@ -1,0 +1,94 @@
+
+.signup{
+    margin: 250px 500px;
+    padding: 30px;
+    border: #888888 2px solid;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .signup input{
+    margin: 10px;
+    height: 30px;
+    width: 100%;
+  }
+
+
+  .signup p{
+    float: right;
+  }
+  #p_para{
+    text-align: center;
+    word-wrap: break-word;
+    width: 200px;
+  }
+  
+  body{
+    background-image: url(../../assets/img/login_background.png);
+    background-size: cover;
+  }
+
+  .login label{
+    padding: 10px;
+  }
+  
+.login ,.signup {
+  /* margin-top: 100px; */
+    margin: 170px 500px 0px 500px;
+    padding: 30px;
+    border: #888888 2px solid;
+    border-radius: 30px;
+    text-align: center;
+    background-color:whitesmoke;
+
+  }
+  .login input {
+    height: 30px;
+    width: 250px;
+    margin: 10px;
+    }
+  .login .flex{
+    display:flex;
+    flex-direction: row;
+    color: blue ;
+    justify-content: space-around;
+    margin-top: 5%;
+  }
+
+  .login button ,.signup button{
+
+    width:15vh;
+    height: 5vh;
+    border-radius: 20px;
+    background-color:#caf0f8;
+    color:#1D2231;
+    box-shadow: -15px 4px 16px -16px rgba(0,0,0,0.68);
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    
+  }
+
+  .login h2{
+    font-size: 40px;
+    font-family: 'Lobster Two', cursive;
+  }
+
+  .login form{
+    padding-bottom: 10px;
+  }
+
+  .signup h1{
+    font-size: 40px;
+    font-family: 'Lobster Two', cursive;
+  }
+ 
+  .signup_btn{
+    margin-left: 105px;
+
+  }
+
+
+  .signup_a{
+    padding-bottom: 40px;
+    margin-right: 20px;
+  }

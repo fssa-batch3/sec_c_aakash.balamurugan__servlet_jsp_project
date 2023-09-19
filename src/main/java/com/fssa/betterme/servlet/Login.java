@@ -1,6 +1,7 @@
 package com.fssa.betterme.servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -55,7 +56,7 @@ public class Login extends HttpServlet {
 						HttpSession session = request.getSession();
 						session.setAttribute("loggedInUser", currentUser.getEmail());
 			
-						response.sendRedirect("./User/index.jsp");
+						response.sendRedirect("./index.jsp");
 					} else {
 						out.println("Invalid email or password");
 					}

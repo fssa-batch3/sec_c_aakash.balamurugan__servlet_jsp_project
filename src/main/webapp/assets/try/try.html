@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="aakash()">aakash</button>
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function aakash(){
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "betterme.corp23@gmail.com",
+            Password: "DCEC72796D5D5E32171345B2F09EA1CAFBC7",
+            To:"aakashbala205@gmail.com",
+            From: "betterme.corp23@gmail.com",
+            Subject: "Appoitment confirmation ",
+            Body: `Hi,{active_user.user_name} <br> This mail is to inform that your{search1} appointment request has been CONFIRMED.<br> Here are the appointment details:<br>
+            Expert Name:{result.person_name}
+      
+            Date of Appointment:
+            
+            Confirmed Time Slot:  IST<br>
+            We will email you the chat link 30 minutes prior to the scheduled time.<br>
+      Please use the link to connect with the expert at the scheduled time.<br>
+      Alternately, you can also find the link on your dashboard on BetterMe.com, 15 minutes before the scheduled time.<br>
+      We hope you have a wonderful session with your expert. We are so glad to be a part of your journey to a happier and healthier life.`,
+          }).then((success)=>{
+            alert(
+              "your session has been confirmed with our expert and refer the email in your Inbox"
+            );
+          });
+      }
+    </script>
+</body>
+</html> -->

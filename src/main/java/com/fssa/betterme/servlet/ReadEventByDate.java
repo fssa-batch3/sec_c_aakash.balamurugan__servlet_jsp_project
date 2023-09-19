@@ -48,7 +48,7 @@ public class ReadEventByDate extends HttpServlet {
 			try {
 			    List<Event> eventList =EventService.getAllEventByDate(date);
 			    request.setAttribute("eventList", eventList);  
-			    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/User/ReadEvent.jsp");
+			    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Admin/ReadEvent.jsp");
 			    dispatcher.forward(request, response);
 			} catch ( ServiceException e) {
 				out.append(e.getMessage());

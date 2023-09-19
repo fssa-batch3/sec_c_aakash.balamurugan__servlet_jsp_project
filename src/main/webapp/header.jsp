@@ -1,47 +1,48 @@
-<%@ page import= "com.fssa.betterme.model.*" %>
-<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary"
-	data-bs-theme="dark">
-	<div class="container-fluid">
-		<p class="navbar-brand"  >BetterMe</p>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			
+<!-- Navigation bar section using div tag and class attribute -->
+<div class="navbar">
+	<div class="logo">
+	   <!-- Using anchor tag to link to the home page -->
+	   <a href="index.jsp"> 
+		   <!-- Adding a logo image and text for the website name -->
+		   <span class="betterme">BetterMe </span>
+	   </a>           
+	 </div>
+  <div class="navs">
+	<a href="#works">
+<button type="button">How It Works</button>
+</a>
+	<a href="#review">
+<button type="button">Review</button>
+</a>
 
-				<%
-				String user =null;
-				try{
-					 user = (String) session.getAttribute("loggedInUser");
-				}catch(Exception e){
+<%
+				String user = null;
+				try {
+					user = (String) session.getAttribute("loggedInUser");
+				} catch (Exception e) {
 					response.sendRedirect("./login.jsp");
 				}
 				if (user == null) {
-					
 				%>
-				<li class="nav-item"><a class="nav-link" href="./login.jsp">Login</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="./signup.jsp">Register</a>
-				</li>
+	<a href="./pages/html_pages/user_module/login.html">
+<span class="start">
+			Log in
+		</span></a>
+		<%
+	} else {
+	%>
+
+	<a href="./pages/html_pages/tips.html">
+		<spa n class="start">
+					Started
+				</span></a>
 				<%
-				} else {
-				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/"><%=user%></a>
+			} 
+			%>
+  </div>
+</div>
 
-				</li>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/LogoutServlet">Logout</a>
 
-				</li>
 
-				<%
-				}
-				%>
-			</ul>
-
-		</div>
-	</div>
-</nav>
+				
+				
