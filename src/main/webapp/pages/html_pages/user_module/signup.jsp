@@ -17,7 +17,7 @@
 
 <body>
 	<div class="signup_form">
-		<form  id="forms" >
+		<form id="forms">
 
 			<div class="signup">
 				<h1>Sign Up for Free</h1>
@@ -30,16 +30,16 @@
 						<div class="signup_inputfield">
 							<input type="text" id="username" name="UserName"
 								pattern="[a-zA-Z]+" required
-								title="First name should contain only alphabets">
+								title="First name should contain only alphabets" minlength="3">
 						</div>
 					</div>
 
 					<!-- Mobile Number -->
 					<div class="form-group">
 						<label for="mobileNumber">Mobile Number:</label> <input type="tel"
-						id="mobileNumber"
-							class="form-control" name="mobileNumber" pattern="[0-9]{10,12}"
-							maxlength="10" required title="enter a valid mobile Number">
+							id="mobileNumber" class="form-control" name="mobileNumber"
+							pattern="[0-9]{10,12}" maxlength="10" required
+							title="enter a valid mobile Number">
 					</div>
 
 					<div class="">
@@ -59,7 +59,8 @@
 
 
 							<select class="form-control" name="gender"
-								style="height: 41px; width: 308px; margin: 10px;" id="gender" required>
+								style="height: 41px; width: 308px; margin: 10px;" id="gender"
+								required>
 								<option value="OTHER">Other</option>
 								<option value="MALE">Male</option>
 								<option value="FEMALE">Female</option>
@@ -100,7 +101,7 @@
 					<div class="">
 						<div class="signup_a">
 							<p>
-								<a href="login.html">Already a user!!</a>
+								<a href="login.jsp">Already a user!!</a>
 							</p>
 						</div>
 						<div class="signup_btn">
@@ -112,7 +113,7 @@
 	</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="../../Js_pages/user module/signup.js"></script>
+	<script src="../../Js_pages/user module/signup.js"></script>
 
 </body>
 

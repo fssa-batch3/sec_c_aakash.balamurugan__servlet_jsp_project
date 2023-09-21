@@ -37,10 +37,10 @@ const Message = document.querySelector("#Message")
 Appoitment_link.addEventListener("click", (e) => {
   e.preventDefault();
   if (active_user_expert == result.id) {
-    window.location.href = `./Appoitment_booking.html?selected_expert=${selected_expert}`;
+    window.location.href = `./Appoitment_booking.jsp?selected_expert=${selected_expert}`;
     // console.log("1");
   } else if (active_user_expert == 0) {
-    window.location.href = `./Appoitment_booking.html?selected_expert=${selected_expert}`;
+    window.location.href = `./Appoitment_booking.jsp?selected_expert=${selected_expert}`;
   } else if (active_user_expert !== result.id) {
     alert("Please make appoitiment with your personal expert");
     // console.log("2");
@@ -50,7 +50,7 @@ Appoitment_link.addEventListener("click", (e) => {
 Message.addEventListener("click" ,  (e) => {
   e.preventDefault();
   if (active_user_expert == result.id) {
-    window.location.href = `./../video_rec.html?selected_expert=${selected_expert}`;
+    window.location.href = `./../video_rec.jsp?selected_expert=${selected_expert}`;
     // console.log("1");
   } else if (active_user_expert == 0) {
     alert("please select an personal expert");

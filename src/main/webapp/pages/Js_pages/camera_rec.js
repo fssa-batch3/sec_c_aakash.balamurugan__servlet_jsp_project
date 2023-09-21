@@ -175,7 +175,7 @@ function save_vid_fun() {
   let video_data_url = dataUrl;
 
  const url =location.origin + "/betterme-web/AddVideo?video="+video_data_url+"&expertId="+ expert;
-    axios.post(url)
+    axios.get(url)
             .then(function(response){
             	console.log(response);
             	if(response.data==true){
@@ -184,6 +184,7 @@ function save_vid_fun() {
                  }
                  else{
                 	 alert( "failed ", "error"); 
+                	 console.log()
                  }
             })
 }

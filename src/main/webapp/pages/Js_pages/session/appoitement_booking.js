@@ -30,13 +30,13 @@ const select_btn = document.querySelectorAll(".app_select");
 const extend_div = document.querySelectorAll(".extend");
 
 select_btn[0].addEventListener("click", () => {
-  window.location.href = `./review_booking.html?expertname=${search}&mode=voice`;
+  window.location.href = `./review_booking.jsp?expertname=${search}&mode=voice`;
 });
 
 select_btn[1].addEventListener("click", () => {
-  window.location.href = `./review_booking.html?expertname=${search}&mode=video`;
+  window.location.href = `./review_booking.jsp?expertname=${search}&mode=video`;
 });
 
 select_btn[2].addEventListener("click", () => {
-  window.location.href = `./review_booking.html?expertname=${search}&mode=chat`;
+  window.location.href = `./review_booking.jsp?expertname=${search}&mode=chat`;
 });

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- displays site properly based on user's device -->
-   <link rel="stylesheet" href="../../../assets/css/sesssion_info.css">
+   <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/sesssion_info.css">
    <title>BetterMe</title>
    <link rel="icon" type="img/png" sizes="32x32" href="../../../assets/img/self.png">
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,30 +15,30 @@
 </head>
 <body>
 
-  <!-- navbar  -->
- <div class="navbar">
-   <div class="logo">
+   <!-- navbar  -->
+  <div class="navbar">
+    <div class="logo">
 
-     <span class="betterme">
-<a href="./../home.html">BetterMe</a>
+      <span class="betterme">
+<a href="../../../index.jsp">BetterMe</a>
 </span>
 
-   </div>
-   <div class="navs">
-     <a href="./../tips.html">
-       <div class="button"> Tips</div>
-     </a>
-     <a href="./../events/event_list.html">
-       <div class="button">Events</div>
-     </a>
-     <a href="./../session/session_list.html">
-       <div class="select">Session</div>
-     </a>
-     <a href="./../user_module/profile.html">
-       <div class="profile">profile</div>
-     </a>
-   </div>
- </div>
+    </div>
+    <div class="navs">
+      <a href="./../tips.jsp">
+        <div class="button"> Tips</div>
+      </a>
+      <a href="./../events/event_list.jsp">
+        <div class="button">Events</div>
+      </a>
+      <a href="./../session/session_list.jsp">
+        <div class="select">Session</div>
+      </a>
+      <a href="../user_module/profile.jsp">
+        <div class="profile">profile</div>
+      </a>
+    </div>
+  </div>
 
     <div class="box1">
 
@@ -147,7 +147,7 @@
          </footer>
         </body>
         
-<script src="../../Js_pages/session/session_info.js">
+<script src="<%=request.getContextPath() %>/pages/Js_pages/session/session_info.js">
 
 </script>
 

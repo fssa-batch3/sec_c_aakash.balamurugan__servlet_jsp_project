@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-​
+  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 </head>
-​
+  
 <body>
     
     <!-- This is profile-section -->
@@ -46,29 +47,26 @@
 </a>
                     </li>
                     <li>
-                        <a href="#" class="active">
-<span class="fa-solid fa-circle-user"></span>
-                            <span>Wishlist</span>
+                        <a href="#" id="video_list" class="active">
+<span ><i class="fa-solid fa-clapperboard"></i></span>
+                            <span>Video list</span>
 </a>
                     </li>
+                  
                     <li>
-                        <a href="#" class="active">
-<span class="fa-solid fa-circle-user"></span>
-                            <span>Offers</span>
+                        <a href="./../tips.jsp" id="my_history" class="active">
+<span class=
+"fa-solid fa-arrow-right-from-bracket fa-rotate-180"></span>
+
+                            <span>Back</span>
 </a>
                     </li>
-                    <li>
-                        <a href="#" id="my_history" class="active">
-<span class="fa-solid fa-calendar-check"></span>
-                            <span>History</span>
-</a>
-                    </li>
-​
+  
                 </ul>
             </div>
-​
+  
         </div>
-​
+  
         <div class="main-item">
             <!-- This is header section -->
           
@@ -83,31 +81,19 @@
                         <input class="name" id="user-firstname" type="text" pattern="[A-Za-z]{1,32}" name="user name"
                             title="First name connot contain spaces" placeholder="First Name" value="" 
                             >
-​
+  
                     </div>
-                    <!-- This is Last name  -->
-                    <div class="last-name" id="align-num">
-                        <label class="more"> Last Name</label>
-                        <input class="name" id="user-lastname" type="text" name="user name" pattern="[A-Za-z]{1,32}"
-                            placeholder="Last Name" value="" title="Last name connot contain spaces">
-​
-                    </div>
+                    
                     
                     <!-- This is email input  -->
                     <div class="email" id="align-num">
                         <label class="more"> Email</label>
                         <input class="name_email" id="user-email" type="email" name="user email" placeholder="name@gmail.com"
-                            value="" required="true" disabled>
-​
+                            value="" required="true" readonly>
+  
                     </div>
-                    <!-- This is password input  -->
-                    <div class="password" id="align-num">
-                        <label class="more"> Password</label>
-                        <input class="name" id="user-password" type="password" 
-                            name="user password">
-​
-                    </div>
-                    <!-- This is city -->
+                   
+                    <!-- This is city 
                     <div class="fCity-name" id="align-num">
                         <label class="more"> City</label>
                         <select name="city" class="name" id="district">
@@ -117,25 +103,19 @@
                             <option value="Madurai">Madurai</option>
                             <option value="Salem">Salem</option>
                         </select>
+                        
+                        
                         <!-- <input class="name" id="user-firstname" type="text" pattern="[A-Za-z]{1,32}" name="user name"
-                            title="First name connot contain spaces" placeholder="First Name" value="" required="true"> -->
-​
+                            title="First name connot contain spaces" placeholder="First Name" value="" required="true"> 
+  
                     </div>
+                    -->
                     <!-- This is number -->
                     <div class="Number" id="align-num">
                         <label class="more"> mobile number</label>
-​
                         <input class="name" id="number" type="tel" pattern="[0-9]{10,12}"
-                            name="number" placeholder="mobile number" maxlength="10">
-​
-                    </div>
-                    <!-- This is Address input  -->
-                    <div class="pincode" id="align-num">
-                        <label class="more"> Pincode</label>
-                        <input class="name" id="pincode" type="text" pattern="[0-9]{6,6}"
-                           maxlength="6" name="user address" placeholder="Pincode">
-​
-                    </div>
+                            name="number" placeholder="mobile number" maxlength="10"></div>
+                   
                     <div class ="edit_btns">
                         <button id="edit_btn">Edit</button>
                         <button id="save_btn" type="submit">Save</button>
@@ -145,7 +125,7 @@
                 </div>
 
                 <div id="my_events_box" class="boxes">
-<p>events page</p>
+ 
                 </div>
 
                 <div id="my_session_page" class="boxes">
@@ -195,12 +175,25 @@
                         </div>
 
                 </div>
+                <div id="show_vid" class="boxes">
+                    <div class="big_vid_pag">
+                        <div class="vid_pag_main">
+                            <div class="video">
+                        </div>
+                        </div>
+                        <div class="comments">
+                            <div id="comt">hi, the video is good</div>
+                            <!-- <input type="text" name="" id="">
+                            <button class="send_btn">Send</button> -->
+                        </div>
+                     </div>
+                </div>
             </div>
         </div>
     </div>
-
-<script src="./expert_landing.js"></script>            ​
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./../../Js_pages/user module/profile.js"></script>              
             
 </body>
-​
+  
 </html>

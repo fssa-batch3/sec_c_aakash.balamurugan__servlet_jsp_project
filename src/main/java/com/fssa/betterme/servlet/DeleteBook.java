@@ -49,7 +49,6 @@ public class DeleteBook extends HttpServlet {
 		boolean res = BookingService.DeleteBooking(eventId, Userid);
 		out.print(res);
 		out.flush();
-		out.close();
 		 
 	} catch (UserValidationException | UserServiceException | BookDAOException e) {
 		response.getWriter().append(e.getMessage());

@@ -432,8 +432,8 @@ height: 95px;
   background-color: #a9def9;
   border-radius: 10px;
   display: flex;
-  flex-wrap: wrap;
-width: 90%;
+
+  width: 90%;
   justify-content: space-between ;
   padding: 20px;
   margin: 30px;

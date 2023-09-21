@@ -94,11 +94,13 @@ setTimeout(() => {
 
 // Function to display the popup
 function display_pop() {
+	if(localStorage.getItem("eventpop") ==0 ){
 	let pop_box1 = document.querySelector(".popup");
 	pop_box1.style.display = "block";
 	document.querySelector("main").setAttribute("style", "filter: blur(8px)");
 	document.documentElement.style.overflow = 'hidden';  // Disable scrolling
 	document.body.scroll = "no"; // Disable scrolling (for older browsers like IE)
+	}
 }
 
 // Event listener to close the popup
@@ -110,4 +112,5 @@ close_div.addEventListener("click", function() {
 	document.querySelector("main").removeAttribute("style");
 	document.documentElement.style.overflow = 'scroll';  // Enable scrolling
 	document.body.scroll = "yes"; // Enable scrolling (for older browsers like IE)
+	localStorage.setItem("eventpop", 1)
 });

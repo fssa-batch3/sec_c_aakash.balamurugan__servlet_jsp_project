@@ -207,5 +207,7 @@ const sessionsitems = [
 //    status:true
 
 localStorage.setItem("sessioninfo", JSON.stringify(sessionsitems));
+localStorage.setItem("sessionpop", 0);
+localStorage.setItem("eventpop", 0);
 
 localStorage.setItem("info", JSON.stringify(info));

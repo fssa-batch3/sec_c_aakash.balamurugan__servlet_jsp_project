@@ -16,13 +16,15 @@ savebtn.style.display = "none";
 savebtn.addEventListener("click", () => {
   editBtn.style.display = "block";
   savebtn.style.display = "none";
+  UpdateUser(mobile.value,first_name.value  )
   disable_inputs();
  // editProfile();
 });
 const remove = document.getElementById("delete_btn");
 remove.addEventListener("click", (e) => {
   e.preventDefault();
-  logout();
+  window.location.href=location.origin + "/betterme-web/LogoutServlet";
+
 });
 
 //const user_details = JSON.parse(localStorage.getItem("user_details"));
@@ -30,17 +32,17 @@ remove.addEventListener("click", (e) => {
 //const details = localStorage.getItem("details");
 //const result = user_details.find((value) => value.user_email === details);
 let first_name = document.getElementById("user-firstname");
-const last_name = document.getElementById("user-lastname");
-let password_ = document.getElementById("user-password");
+
+
 let user_email = document.getElementById("user-email");
 let mobile = document.getElementById("number");
 const district = document.getElementById("district");
-const pincode = document.getElementById("pincode");
+
 
 
 function displayUser(user){
 	first_name.value = user.username;
-	password_.value = user.password;
+	
 	mobile.value = user.phoneNumber;
 	user_email.value = user.email;
 	document
@@ -58,21 +60,17 @@ disable_inputs();
 function disable_inputs(){
 	
 first_name.setAttribute("disabled", "");
-last_name.setAttribute("disabled", "");
-password_.setAttribute("disabled", "");
+
 mobile.setAttribute("disabled", "");
-district.setAttribute("disabled", "");
-pincode.setAttribute("disabled", "");
+
+
 }
 
 function enabled_input() {
   first_name.removeAttribute("disabled");
-  last_name.removeAttribute("disabled");
-  password_.removeAttribute("disabled");
-  password_.type = "text";
+
   mobile.removeAttribute("disabled");
-  district.removeAttribute("disabled");
-  pincode.removeAttribute("disabled");
+ 
 }
 /*
 function editProfile() {
@@ -234,14 +232,14 @@ for (let i = 0; i < appoitement_list.length; i++) {
     redirect.appendChild(divEvent);
 
     const divEventBox = document.createElement("div");
-    
+     let deleteButton ;
     if (event.active) {
   
         divEventBox.classList.add("activeEvent"); 
 
     
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
+     deleteButton  = document.createElement("button");
+        deleteButton.textContent = "Cancel Booking";
         deleteButton.classList.add("delete-button");
 
         
@@ -250,7 +248,7 @@ for (let i = 0; i < appoitement_list.length; i++) {
         });
 
    
-        divEventBox.appendChild(deleteButton);
+       
     } else {
     
         divEventBox.classList.add("deactiveEvent");
@@ -267,7 +265,9 @@ for (let i = 0; i < appoitement_list.length; i++) {
     imgPhoto.setAttribute("src", event.imageUrl);
     imgPhoto.setAttribute("alt", event.eventName);
     divOnuila.appendChild(imgPhoto);
-
+      if (event.active) {
+     divOnuila.appendChild(deleteButton);
+}
     const divNone = document.createElement("div");
     divNone.setAttribute("class", "title_para");
     divEventBox.appendChild(divNone);
@@ -304,10 +304,10 @@ for (let i = 0; i < appoitement_list.length; i++) {
             	console.log(response);
             	if(response.data==true){
                 	 alert("Susccessfully booking cancelled", "success");
-                	 window.location.href="./profile.html";
+                	 location.reload();
                  }
                  else{
-                	 alert( "failed registerd", "error"); 
+                	 alert( response.data); 
                  }
             })
 	
@@ -355,22 +355,35 @@ async function fetchUser() {
 	}
 }
 
+
+
+
+ function UpdateUser(umobile,uname) {
+	
+			const url = location.origin + "/betterme-web/UpdateUser?name="+uname+"&mobile="+umobile;
+    axios.post(url)
+            .then(function(response){
+            	console.log(response);
+            	if(response.data==true){
+                	 alert("Susccessfully Updated", "success");
+                	 
+                 }
+                 else{
+                	 alert( response.data); 
+                	 location.reload();
+                 }
+            })
+	
+}
+
 // Call the async function to initiate the fetch
 fetchUser();
 
 fetchBooking();
 
+
+
 /*
-function logout() {
-  const ind = user_details.findIndex((value) => value.user_email === details);
-
-
-  if (user_details[ind].user_email == details) {
-    localStorage.setItem("details", "");
-    window.location.href = "./login.html";
-  }
-}
-
 
 
 // show videos

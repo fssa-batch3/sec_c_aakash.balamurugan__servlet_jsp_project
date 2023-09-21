@@ -48,7 +48,7 @@ if (active_user_expert!==0) {
   const link = document.createElement("a");
   link.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[pes_exp].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[pes_exp].person_name}`
   );
   pic.append(link);
 
@@ -74,7 +74,7 @@ if (active_user_expert!==0) {
   const link4 = document.createElement("a");
   link4.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[pes_exp].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[pes_exp].person_name}`
   );
   detail.append(link4);
 
@@ -89,7 +89,7 @@ if (active_user_expert!==0) {
   const link2 = document.createElement("a");
   link2.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[pes_exp].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[pes_exp].person_name}`
   );
   occupation.append(link2);
 
@@ -108,7 +108,7 @@ if (active_user_expert!==0) {
   const link3 = document.createElement("a");
   link3.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[pes_exp].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[pes_exp].person_name}`
   );
   occupation.append(link3);
 }
@@ -132,7 +132,7 @@ for (let i = 0; i < sessionsitems.length; i++) {
   const link = document.createElement("a");
   link.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[i].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[i].person_name}`
   );
   pic.append(link);
 
@@ -148,7 +148,7 @@ for (let i = 0; i < sessionsitems.length; i++) {
   const link4 = document.createElement("a");
   link4.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[i].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[i].person_name}`
   );
   detail.append(link4);
 
@@ -163,7 +163,7 @@ for (let i = 0; i < sessionsitems.length; i++) {
   const link2 = document.createElement("a");
   link2.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[i].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[i].person_name}`
   );
   occupation.append(link2);
 
@@ -182,7 +182,7 @@ for (let i = 0; i < sessionsitems.length; i++) {
   const link3 = document.createElement("a");
   link3.setAttribute(
     "href",
-    `./sessioninfo.html?name=${sessionsitems[i].person_name}`
+    `./sessioninfo.jsp?name=${sessionsitems[i].person_name}`
   );
   occupation.append(link3);
 
@@ -201,17 +201,19 @@ setTimeout(() => {
 }, 1000); 
 
 function display_pop() {
+	if(localStorage.getItem("sessionpop") ==0 ){
   let pop_box1 = document.querySelector(".popup");
   pop_box1.style.display="block";
   document.querySelector("main").setAttribute("style","filter:blur(8px)")
   document.documentElement.style.overflow = 'hidden';  // firefox, chrome
   document.body.scroll = "no"; // ie only
-  
+  }
 }
 let close_div = document.querySelector(".close")
 console.log(close_div);
 
 close_div.addEventListener("click",function () {
+	localStorage.setItem("sessionpop", 1);
   let pop_box1 = document.querySelector(".popup");
   pop_box1.style.display="none";
   document.querySelector("main").removeAttribute("style")

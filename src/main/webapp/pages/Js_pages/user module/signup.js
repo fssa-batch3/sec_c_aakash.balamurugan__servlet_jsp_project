@@ -25,7 +25,7 @@ function aakash() {
                 	 window.location.href="./login.html";
                  }
                  else{
-                	 alert( "email already registerd", "error"); 
+                	 alert( response.data); 
                  }
             })
 

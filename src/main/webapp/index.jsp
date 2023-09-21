@@ -17,7 +17,7 @@
 
 <body>
 
-	<jsp:include page="./header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<!-- First banner section using div tag and class attribute-->
 	<div class="banner">
 		<div id="maincont">
@@ -36,15 +36,15 @@
 			}
 			if (user == null) {
 			%>
-			<a href="pages/html_pages/user_module/login.html"> <!-- Adding a button element with text content-->
-				<button class="start">Login</button>
+			<a href="pages/html_pages/user_module/signup.jsp"> <!-- Adding a button element with text content-->
+				<button class="start">SignUp</button>
 			</a>
 			<%
 			} else {
 			%>
 
 
-			<a href="./pages/html_pages/tips.html"> <!-- Adding a button element with text content-->
+			<a href="./pages/html_pages/tips.jsp"> <!-- Adding a button element with text content-->
 				<button class="start">Get started</button>
 			</a>
 			<%
@@ -62,7 +62,7 @@
 			and HIPAA-compliant app.</p>
 		<div class="tpo-align">
 			<div class="pic">
-				<img src="./assets/img/home/Work_6.jpg" alt="">
+				<img src="https://ibb.co/M8T0xNk" alt="">
 			</div>
 			<p>Improve your mental health in the most convenient and
 				affordable way! You'll get matched with a licensed therapist in your
@@ -198,14 +198,14 @@
 
 	<!-- footer -->
 	<footer>
-		<p>Copyright Â© BetterMe. All right reserved.</p>
+		<p>Copyright © BetterMe. All right reserved.</p>
 		<p>Privacy policy | Contact us</p>
 		<br> <br>
-		<p>If you are in a life threatening situation - donâ€™t use this
+		<p>If you are in a life threatening situation - don'€™t use this
 			site. Call +1 (800) 273-8255 or use these resources to get immediate
 			help.</p>
 	</footer>
-	<script src="./pages/Js_pages/main.js">
+	<script src="<%=request.getContextPath() %>/pages/Js_pages/main.js">
 		
 	</script>
 

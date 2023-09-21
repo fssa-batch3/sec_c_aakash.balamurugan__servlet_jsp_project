@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- displays site properly based on user's device -->
-    <link rel="stylesheet" href="./../../assets/css/signup.css">
+    <link rel="stylesheet" href="../../../assets/css/signup.css">
     <title>BetterMe</title>
     
     <link
@@ -24,19 +24,20 @@
   <body>
     <div class="">
       <div class="login">
-        <h2>Admin access</h2>
-        <form>
+        <h2>Welcome Back</h2>
+        <form action="./../../../Login" method="get">
           <div class="">
-            <label> Email Id </label>
-            <input type="email" id="log_email" required>
+            <label for="email"> Email Id </label>
+            <input type="email" name="email" id="log_email" required>
           </div>
 
           <div class="">
-            <label> Password </label>
+            <label for="password"> Password </label>
              <input
               type="password"
               id="log_password"
               pattern="(?=^.{4,}(?=.*[A-Z])(?=.*[a-z]).*$"
+              name="password"
               required
             >
           </div>
@@ -46,7 +47,7 @@
 <a href="#">Forgot Password?</a>
 </div>
             <div class="">
-<a href="./signup.html">Not a user Already?</a>
+<a href="./signup.jsp">Not a user Already?</a>
 </div>
           </div>
           <br >
@@ -55,8 +56,10 @@
         </form>
       </div>
     </div>
-    <script src="./expert_login.js">
-     
+    
+    <script type="text/javascript" >
+    
     </script>
+
   </body>
 </html>
