@@ -56,6 +56,13 @@
 
 
 		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.4</version> <!-- Use the latest version available -->
+		</dependency>
+
+
+		<dependency>
 			<groupId>com.fssa.betterme</groupId>
 			<artifactId>BetterMe</artifactId>
 			<version>0.0.1-SNAPSHOT</version>

@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- displays site properly based on user's device -->
-<link rel="stylesheet" href="./../../../assets/css/signup.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/signup.css">
 <title>BetterMe</title>
 <link rel="icon" type="img/png" sizes="32x32"
-	href="../../../assets/img/self.png">
+	href="<%=request.getContextPath() %>/assets/img/self.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -29,7 +29,7 @@
 						</div>
 						<div class="signup_inputfield">
 							<input type="text" id="username" name="UserName"
-								pattern="[a-zA-Z]+" required
+								pattern="[a-zA-Z ]+" required
 								title="First name should contain only alphabets" minlength="3">
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 								</div>
 								<div class="signup_inputfield">
 									<input type="password" id="conpassword"
-										pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+									
 										required>
 								</div>
 							</div>
@@ -113,7 +113,8 @@
 	</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script src="../../Js_pages/user module/signup.js"></script>
+ 
+	<script src="<%=request.getContextPath() %>/pages/Js_pages/user module/signup.js"></script>
 
 </body>
 

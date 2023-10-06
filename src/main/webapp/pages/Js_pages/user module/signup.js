@@ -16,13 +16,14 @@ function aakash() {
 
 
 	if (password == conpass) {
-		const url = location.origin+"/betterme-web/SignupServlet?username="+First_name +"&mobileNumber="+mobileNumber+"&email="+email+"&gender="+gender+"&password="+password ;
+		
+	const url = location.origin+"/betterme-web/SignupServlet?username="+First_name +"&mobileNumber="+mobileNumber+"&email="+email+"&gender="+gender+"&password="+password ;
     axios.post(url)
             .then(function(response){
             	console.log(response);
             	if(response.data==true){
-                	 alert("Susccessfully created account", "success");
-                	 window.location.href="./login.html";
+                	
+                	 window.location.href="./login.jsp";
                  }
                  else{
                 	 alert( response.data); 

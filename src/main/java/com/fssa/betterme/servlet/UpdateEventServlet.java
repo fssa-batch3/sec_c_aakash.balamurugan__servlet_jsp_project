@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.fssa.betterme.exception.ServiceException;
 import com.fssa.betterme.exception.EventValidationException;
 import com.fssa.betterme.model.Event;
+import com.fssa.betterme.model.Trainner;
+import com.fssa.betterme.service.EventHostService;
 import com.fssa.betterme.service.EventService;
 
 /**
@@ -43,37 +46,58 @@ public class UpdateEventServlet extends HttpServlet {
 		 
 	        int eventId = Integer.parseInt(request.getParameter("event_id"));
 	        String eventName = request.getParameter("event_name");
-	        String eventDescription = request.getParameter("event_description");
-	        String eventAddress = request.getParameter("event_address");
-	        String imageUrl = request.getParameter("img_url");
-	        String dateStr = request.getParameter("date"); 
-	        String timeStr = request.getParameter("time");
-	        double price = Double.parseDouble(request.getParameter("price"));
-	        boolean isActive = request.getParameter("status") == "true";
-	        String eventabt = request.getParameter("eventabt");
+			String eventDescription = request.getParameter("event_description");
+			String eventAddress = request.getParameter("event_address");
+			String imgUrl = request.getParameter("img_url");
+			String dateStr = request.getParameter("date");
+			String timeStr = request.getParameter("time");
+			double price = Double.parseDouble(request.getParameter("price"));
+			String eventabt = request.getParameter("event_About");
+			boolean isActive = request.getParameter("isActive") == "true";
+			String email = request.getParameter("HostEmail");
+			try {
 
-	        
-	        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	        LocalDate date = LocalDate.parse(dateStr, dateFormatter);
-	        
-	        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-	        LocalTime time = LocalTime.parse(timeStr, timeFormatter);
-	        // Here you would perform the logic to update the event in your data store
-	        // For demonstration purposes, let's assume you have an EventService to handle this
-	      
-	        
+				DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				LocalDate date = LocalDate.parse(dateStr, dateFormatter);
 
-	        Event updatedEvent = new Event(eventId,eventName ,eventabt, eventDescription, eventAddress,  date, time, price,imageUrl,isActive);
-	        try {
-				if(EventService.updateEvent(updatedEvent))
-					out.print("<h1>Sucess</h1>");
+				DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+				LocalTime time = LocalTime.parse(timeStr, timeFormatter);
+
+				Trainner host = EventHostService.findTrainerByEmail(email);
+				Event validEvent = new Event(eventId, eventName, eventabt, eventDescription, eventAddress, date, time, price, imgUrl,isActive
+						,host);
+				
+				EventService.updateEvent(validEvent);
 				response.sendRedirect("ReadAllEvent");
-			} catch ( EventValidationException | ServiceException e) {
-				out.print(e.getMessage());
-			
+
+			} catch (EventValidationException | ServiceException | IOException e) {
+				
+				request.setAttribute("error", e.getMessage());
+				request.setAttribute("event_id", eventId);		
+				request.setAttribute("isActive", isActive);
+				request.setAttribute("event_name", eventName);
+				request.setAttribute("event_About", eventabt);
+				request.setAttribute("event_description", eventDescription);
+				request.setAttribute("event_address", eventAddress);
+				request.setAttribute("img_url", imgUrl);
+				request.setAttribute("date", dateStr);
+				request.setAttribute("time", timeStr);
+				request.setAttribute("price", price);
+				request.setAttribute("HostEmail", email);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("Admin/AddEvent.jsp");
+				try {
+					dispatcher.forward(request, response);
+				} catch (ServletException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
+
+		}
+	  
 
 	        
 	    }
 
-}
+

@@ -14,6 +14,8 @@ import com.fssa.betterme.exception.UserValidationException;
 import com.fssa.betterme.model.Gender;
 import com.fssa.betterme.model.User;
 import com.fssa.betterme.service.UserService;
+import com.fssa.betterme.util.PasswordHash;
+
 
 /**
  * Servlet implementation class SignupServlet
@@ -21,25 +23,12 @@ import com.fssa.betterme.service.UserService;
 @WebServlet("/SignupServlet")
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SignupServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		doPost(request, response);
+//	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 	        // Get user input from the form
@@ -48,9 +37,21 @@ public class SignupServlet extends HttpServlet {
 	        String email = request.getParameter("email");
 	        Gender gender = Gender.valueOf( request.getParameter("gender"));
 	        String password = request.getParameter("password");
+	        
+	        String pass = null;
+			try {
+				System.out.println(PasswordHash.hashPass(password));
+				pass = PasswordHash.hashPass(password);
+				
+			} catch (Exception e) {
+				
+				System.out.println(e.getMessage());
+			}
+	       
+	
 
 	   
-	        User user = new User(username, email,password,mobileNumber ,gender);
+	        User user = new User(username, email,pass,mobileNumber ,gender);
 	        
 	     try {
 			boolean res =UserService.addUser(user);

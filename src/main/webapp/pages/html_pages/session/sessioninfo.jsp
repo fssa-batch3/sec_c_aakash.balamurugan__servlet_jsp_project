@@ -25,7 +25,7 @@
 
     </div>
     <div class="navs">
-      <a href="./../tips.jsp">
+      <a href="./../tips.html">
         <div class="button"> Tips</div>
       </a>
       <a href="./../events/event_list.jsp">

@@ -442,8 +442,9 @@ height: 95px;
 }
 .eventbox img{
  
-  height: 280px;
+
   margin-right: 20px;
+  width:500px
 }
 .eventbox p{
   font-size: 20px;
@@ -458,6 +459,29 @@ height: 95px;
 .eventbox:hover{
   box-shadow: #888888 5px 2px;
   transform: scale(1.02);
+}
+
+#confirmBook{
+		width: 15vh;
+	height: 5vh;
+	border-radius: 20px;
+	background-color: #00b4d8;
+	color: #1D2231;
+	box-shadow: -15px 4px 16px -16px rgba(0, 0, 0, 0.68);
+	margin-top: 20px;
+	border: none;
+}
+
+#confirmBookbtn{
+		width: 15vh;
+	height: 5vh;
+	border-radius: 20px;
+	background-color: #00b4d8;
+	color: #1D2231;
+	box-shadow: -15px 4px 16px -16px rgba(0, 0, 0, 0.68);
+	margin-top: 20px;
+	margin-left: 250px;
+	border: none;
 }
 
 /* content page for events */
@@ -488,10 +512,15 @@ text-align: center;
   margin-top:100px ;
 }
 .moreimg img{
-  height: 250px;
+  height: 280px;
+  
 } 
+.moreimg{
+	width:30%;
+}
 .brief_on_event{
   text-align: center;
+  width:70%;
 }
 .review{
   margin-top: 70px;

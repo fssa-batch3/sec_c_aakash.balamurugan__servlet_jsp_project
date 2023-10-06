@@ -20,7 +20,7 @@ savebtn.addEventListener("click", () => {
   disable_inputs();
  // editProfile();
 });
-const remove = document.getElementById("delete_btn");
+const remove = document.getElementById("logout");
 remove.addEventListener("click", (e) => {
   e.preventDefault();
   window.location.href=location.origin + "/betterme-web/LogoutServlet";
@@ -355,6 +355,26 @@ async function fetchUser() {
 	}
 }
 
+async function fetchUserVideo() {
+	try {
+		const response = await fetch(location.origin + "/betterme-web/GetVideoForUser");
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+
+		// Assuming the response is JSON data
+		const videos = await response.json();
+
+		// Now you can work with 'info'
+	console.log(videos);
+		show_videos(videos); 
+	} catch (error) {
+		// Handle any errors that occurred during the fetch
+		console.error("Fetch error:", error);
+	}
+}
+
 
 
 
@@ -381,35 +401,36 @@ fetchUser();
 
 fetchBooking();
 
+fetchUserVideo();
 
 
-/*
 
 
-// show videos
 
-const savedVideos = JSON.parse(localStorage.getItem("saved_video_lst"))
+function show_videos(savedVideos){
+
+
 for (let i = 0; i < savedVideos.length; i++) {
 
 
-let vid_blob = savedVideos[i]["blob"]
+let vid_blob = savedVideos[i];
 
 const video = document.createElement("video")
 video.setAttribute("src",vid_blob)
 video.setAttribute("controls","");
 video.setAttribute("class", "video")
 
-const video_show_para = document.createElement("p");
-video_show_para.setAttribute("class", "")
-video_show_para.innerText = `Date:${savedVideos[i]["date"]}`
+//const video_show_para = document.createElement("p");
+//video_show_para.setAttribute("class", "")
+//video_show_para.innerText = `Date:${savedVideos[i]["date"]}`;
 
 const video_show_div = document.createElement("div");
 video_show_div.setAttribute("class", "")
-video_show_div.append(video_show_para);
+//video_show_div.append(video_show_para);
 video_show_div.append(video);
 
 
 document.querySelector(".video").append(video_show_div);
 
 }
-*/
+}

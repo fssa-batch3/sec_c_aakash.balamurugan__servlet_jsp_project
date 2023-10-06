@@ -54,11 +54,11 @@
                     </li>
                   
                     <li>
-                        <a href="./../tips.jsp" id="my_history" class="active">
+                        <a href="#" id="logout" class="active">
 <span class=
 "fa-solid fa-arrow-right-from-bracket fa-rotate-180"></span>
 
-                            <span>Back</span>
+                            <span>LogOut</span>
 </a>
                     </li>
   
@@ -119,7 +119,7 @@
                     <div class ="edit_btns">
                         <button id="edit_btn">Edit</button>
                         <button id="save_btn" type="submit">Save</button>
-                        <button id="delete_btn">Log Out</button>
+                       
                     </div>
                 </form>
                 </div>

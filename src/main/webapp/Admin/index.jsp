@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
+
 
 <h3>Event Features</h3>
 <a href="./AddEvent.jsp">Add events Details</a><br>

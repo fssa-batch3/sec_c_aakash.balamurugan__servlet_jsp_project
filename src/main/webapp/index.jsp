@@ -8,10 +8,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Use of external CSS file to style the page -->
-<link rel="stylesheet" href="assets/css/new.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/new.css">
 <title>BetterMe</title>
 <!-- Adding a favicon for the website -->
-<link rel="icon" type="img/png" sizes="32x32" href="assets/img/self.png">
+<link rel="icon" type="img/png" sizes="32x32" href="<%=request.getContextPath() %>/assets/img/self.png">
 <!-- <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inconsolata:wght@500;900&family=Kdam+Thmor+Pro&family=Lobster+Two&family=Outfit:wght@300;400;600&family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet"> -->
 </head>
 
@@ -32,7 +32,7 @@
 			try {
 				user = (String) session.getAttribute("loggedInUser");
 			} catch (Exception e) {
-				response.sendRedirect("pages/html_pages/user_module/login.html");
+				response.sendRedirect("pages/html_pages/user_module/login.jsp");
 			}
 			if (user == null) {
 			%>
@@ -44,7 +44,7 @@
 			%>
 
 
-			<a href="./pages/html_pages/tips.jsp"> <!-- Adding a button element with text content-->
+			<a href="./pages/html_pages/tips.html"> <!-- Adding a button element with text content-->
 				<button class="start">Get started</button>
 			</a>
 			<%
@@ -62,7 +62,7 @@
 			and HIPAA-compliant app.</p>
 		<div class="tpo-align">
 			<div class="pic">
-				<img src="https://ibb.co/M8T0xNk" alt="">
+				<img src="./assets/img/home/Work_6.jpg" alt="">
 			</div>
 			<p>Improve your mental health in the most convenient and
 				affordable way! You'll get matched with a licensed therapist in your
@@ -198,10 +198,10 @@
 
 	<!-- footer -->
 	<footer>
-		<p>Copyright © BetterMe. All right reserved.</p>
+		<p>Copyright ï¿½ BetterMe. All right reserved.</p>
 		<p>Privacy policy | Contact us</p>
 		<br> <br>
-		<p>If you are in a life threatening situation - don'€™t use this
+		<p>If you are in a life threatening situation - don'ï¿½ï¿½t use this
 			site. Call +1 (800) 273-8255 or use these resources to get immediate
 			help.</p>
 	</footer>

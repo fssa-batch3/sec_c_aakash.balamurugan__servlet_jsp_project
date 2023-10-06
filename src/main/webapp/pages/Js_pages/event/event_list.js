@@ -1,5 +1,5 @@
 // URL to fetch event data from the server
-const url = location.origin + "/betterme-web/ReadAllEventJSON";
+
 
 // Function to display event data on the page
 function displayinfo(info) {
@@ -62,8 +62,9 @@ function displayinfo(info) {
 	}
 };
 
-// Function to fetch event data from the server;
 
+// Function to fetch event data from the server;
+const url = location.origin + "/betterme-web/ReadAllEventJSON";
 async function fetchData() {
 	try {
 		const response = await fetch(url);

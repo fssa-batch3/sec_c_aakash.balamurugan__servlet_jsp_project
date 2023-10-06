@@ -1,17 +1,20 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- displays site properly based on user's device -->
-    <link rel="stylesheet" href="../../../assets/css/signup.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/signup.css">
+    
     <title>BetterMe</title>
     
     <link
       rel="icon"
       type="img/png"
       sizes="32x32"
-      href="../../../assets/img/self.png"
+      href="<%=request.getContextPath() %>/assets/img/self.png"
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,44 +25,48 @@
   </head>
 
   <body>
-    <div class="">
-      <div class="login">
-        <h2>Welcome Back</h2>
-        <form action="./../../../Login" method="get">
-          <div class="">
-            <label for="email"> Email Id </label>
-            <input type="email" name="email" id="log_email" required>
-          </div>
+    <div class="signin_form">
+    <form action ="<%=request.getContextPath() %>/Login" method = post class="log_form">
 
-          <div class="">
-            <label for="password"> Password </label>
-             <input
-              type="password"
-              id="log_password"
-              pattern="(?=^.{4,}(?=.*[A-Z])(?=.*[a-z]).*$"
-              name="password"
-              required
-            >
-          </div>
+      <c:if test="${not empty Error}">
+        <div class="alert alert-danger">${Error}</div>
+      </c:if>
+      
+     <h1> Welcome Back!</h1>
 
-          <div class="flex">
-            <div class="">
-<a href="#">Forgot Password?</a>
-</div>
-            <div class="">
-<a href="./signup.jsp">Not a user Already?</a>
-</div>
-          </div>
-          <br >
-
-          <button class="button button-block">Log In</button>
-        </form>
-      </div>
+        <div class="form__group field">
+      <input type="email"
+      name="email" id="log_email" value="${email}" class="form__field" placeholder="Name" required="">
+      <label for="email" class="form__label">Email</label>
+     
     </div>
-    
-    <script type="text/javascript" >
-    
-    </script>
+      <div class="form__group field">
+        <input type="password"
+        id="log_password" pattern="(?=^.{4,}(?=.*[A-Z])(?=.*[a-z]).*$"
+        name="password" value="${password}" class="form__field" placeholder="password" required="">
+        <label for="password" class="form__label">Password</label>
+     </div>
+  
+    <p>
+      <a href="#">Forget Password</a>
+    </p>
+    <div class="btn">
+      <button>submit</button>
+    </div>
+  </form>
+   </div>
+   
 
+   
+   <c:if test="${not empty Error}">
+   <script>
+   alert( "${Error}", "error");
+   </script>
+ </c:if>
+   
+    
+
+     
+   
   </body>
 </html>

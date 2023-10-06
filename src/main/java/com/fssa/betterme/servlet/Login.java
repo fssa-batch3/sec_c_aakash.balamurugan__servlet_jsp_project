@@ -1,9 +1,9 @@
 package com.fssa.betterme.servlet;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +15,7 @@ import com.fssa.betterme.exception.UserServiceException;
 import com.fssa.betterme.exception.UserValidationException;
 import com.fssa.betterme.model.User;
 import com.fssa.betterme.service.UserService;
+import com.fssa.betterme.util.PasswordHash;
 
 /**
  * Servlet implementation class Login
@@ -23,10 +24,22 @@ import com.fssa.betterme.service.UserService;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		
+		request.setAttribute("email", email);
+		request.setAttribute("password", password);
+
+		String pass = null;
+		try {
+			pass = PasswordHash.hashPass(password);
+		} catch (UserValidationException e) {
+
+		}
 		PrintWriter out = response.getWriter();
 
 		if (email != null || password != null) {
@@ -35,39 +48,37 @@ public class Login extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("loggedInUser", "admin@gmail.com");
 				response.sendRedirect("./Admin/index.jsp");
-				
-			
+
 			} else {
 
 				try {
 					User currentUser = UserService.getUserByEmail(email);
 
-					if (currentUser != null && currentUser.getPassword().equals(password)) {
+					if (currentUser != null && currentUser.getPassword().equals(pass)) {
 
 						HttpSession session = request.getSession();
 						session.setAttribute("loggedInUser", currentUser.getEmail());
-			
+
 						response.sendRedirect("./index.jsp");
 					} else {
-						out.println("Invalid email or password");
+						request.setAttribute("Error", "Invalid email or password");
+						RequestDispatcher rd = request.getRequestDispatcher("./pages/html_pages/user_module/login.jsp");
+						rd.forward(request, response);
+
 					}
 				} catch (UserValidationException | UserServiceException e) {
-					out.println(e.getMessage());
+					request.setAttribute("Error", e.getMessage()+" Try SignUp");
+					RequestDispatcher rd = request.getRequestDispatcher("./pages/html_pages/user_module/login.jsp");
+					rd.forward(request, response);
+
 				}
 			}
 		} else {
-			out.println("email or password is null");
+			request.setAttribute("Error", "email or password is null");
+			RequestDispatcher rd = request.getRequestDispatcher("./pages/html_pages/user_module/login.jsp");
+			rd.forward(request, response);
 		}
 
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
 
 	}
 

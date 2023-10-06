@@ -18,13 +18,13 @@
         <a href="./tips.html">
           <div class="button">Tips</div>
         </a>
-        <a href="./events/event_list.html">
+        <a href="./events/event_list.jsp">
           <div class="button">Events</div>
         </a>
-        <a href="./session/session_list.html">
+        <a href="./session/session_list.jsp">
           <div class="select">Session</div>
         </a>
-        <a href="./user_module/profile.html">
+        <a href="./user_module/profile.jsp">
           <div class="profile">profile</div>
         </a>
       </div>

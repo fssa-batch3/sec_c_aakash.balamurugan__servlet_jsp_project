@@ -2,11 +2,6 @@ const url = window.location.search;
 const urlparams = new URLSearchParams(url);
 const search = urlparams.get("selected_expert");
 
-const user_details = JSON.parse(localStorage.getItem("user_details"));
-
-const details = localStorage.getItem("details");
-const act_user_obj = user_details.find((value) => value.user_email === details);
-
 
 const constraints = { video: { width: { max: 320 } }, audio: true };
 
@@ -93,37 +88,12 @@ function download() {
     track.stop();
   });
 
-//   const blob1 = new Blob(recordedChunks, { type: "video/mp4" });
-//   Link = URL.createObjectURL(blob1);
-//   const a = document.createElement("a");
-//   // document.body.appendChild(a);
-//   // a.style = "display: none";
-//   a.href = Link;
-//   const video_name = new Date().getTime();
-//   a.download = `${video_name}.mp4`; 
 
-
-//   // a.click();
-
-//   // const playback_vid = document.createElement("video");
-//   const playback_vid = document.getElementById("videoRecorded")
-//   // playback_vid.setAttribute("src","C:/Users/AakashBalamurugan/Downloads/"+a.download);
-//   // playback_vid.setAttribute("src","./_Untitled - Notepad 2023-04-18 09-38-50.mp4");
-//   playback_vid.setAttribute("src", Link);
-
-//   console.log(Link);
-
-//   let blob = Link;
-// let dataUrl = await 
-//             new Promise(r => {let a=new FileReader(); a.onload=r; a.readAsDataURL(blob)}).then(e => e.target.result);
-// console.log(dataUrl);
   
 
 processVideo();
 
-// playback_vid.setAttribute("src","./../../Downloads/"+video_name+".mp4");
 
-// video_append.style.display="block";
 video_append.style.display="block";
 
 }
@@ -149,68 +119,100 @@ async function processVideo() {
   console.log(dataUrl);
 }
 
-let saved_video ;
-if (localStorage.getItem("saved_video_lst")) {
-  saved_video = JSON.parse(localStorage.getItem("saved_video_lst"));
-}else{
-  saved_video =[];
-}
+
 
 const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
   .toISOString()
   .split("T")[0];
 
 
-function save_vid_fun() {
-  
 
-//   blobToDataURL(Link, function(dataurl){
-//     console.log(dataurl);
-// } )
+// Replace these with your Cloudinary credentials
+const cloudName = 'dmfgsb9c5';
+const uploadPreset = 'bhxhlyhq'; // Replace with your upload preset
 
+// Function to handle the video upload
+async function uploadVideo(dataUrl) {
+    // Create a Blob from the Data URL
+    const blob = dataURLtoBlob(dataUrl);
+    console.log(dataUrl);
+    console.log(blob);
 
+    // Create a FormData object to send the video to Cloudinary
+    const formData = new FormData();
+    formData.append('file', blob);
+    formData.append('upload_preset', uploadPreset);
 
-  let expert = search;
-  let user = act_user_obj.user_id;
-  let video_data_url = dataUrl;
+    // Upload the video to Cloudinary
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/video/upload`, {
+        method: 'POST',
+        body: formData,
+    });
 
- const url =location.origin + "/betterme-web/AddVideo?video="+video_data_url+"&expertId="+ expert;
-    axios.get(url)
+    if (response.ok) {
+        const responseData = await response.json();
+        const secureURL = responseData.secure_url;
+
+        return secureURL;
+    } else {
+        return null;
+    }
+}
+
+// Function to convert Data URL to Blob
+function dataURLtoBlob(dataUrl) {
+    const parts = dataUrl.split(';base64,');
+    const contentType = parts[0].split(':')[1];
+    const byteCharacters = atob(parts[1]);
+    const byteNumbers = new Array(byteCharacters.length);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: contentType });
+}
+
+// Example usage: Call uploadVideo when you want to upload the video
+async function save_vid_fun() {
+   const url =  await uploadVideo(dataUrl);
+
+   if(url){
+await UploadUrl(url)
+    console.log(url);
+
+   }else {
+
+    alert("Video upload failed");
+   }
+}
+
+async function UploadUrl(VideoUrl){
+	const url =location.origin + "/betterme-web/AddVideo?video="+VideoUrl+"&expertId="+search ;
+    axios.post(url)
             .then(function(response){
             	console.log(response);
             	if(response.data==true){
-                	 alert("Video saved Susccessfully ", "success");
-                	 window.location.href="./profile.html";
+                	 alert("Susccessfully video saved", "success");
+                	 location.reload();
                  }
                  else{
-                	 alert( "failed ", "error"); 
-                	 console.log()
+                	 alert( response.data); 
                  }
             })
 }
 
 
-
-
 let send_vid = document.querySelector("#Save_btn");
-send_vid.addEventListener("click", function () {
-  save_vid_fun()
-  alert("saved sucessfully");
-  window.location.reload()
-  
-})
+send_vid.addEventListener("click", async function () {
+    await save_vid_fun()
+    alert("saved sucessfully");
+
+});
 
 let refresh = document.querySelector("#delete_btn");
 
 refresh.addEventListener("click", function (e) {
-window.location.reload();
-  
-})
+    window.location.reload();
 
-
-for (let i = 0; i < saved_video.length; i++) {
-  console.log(saved_video[i].date)
-
-}
-
-
+});

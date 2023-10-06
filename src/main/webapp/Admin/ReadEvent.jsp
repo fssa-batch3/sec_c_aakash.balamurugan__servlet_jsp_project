@@ -47,7 +47,7 @@
     				<td>${event.getPrice() }</td>        
     				<td>  <img alt="${event.eventName}" src="${event.imageUrl}" width="100" height="100"></td>
   	            <td>
-                        <a href=./EditServlet?id=${event.id}>Update</a>
+                        <a href=./EditServlet?event_id=${event.id}>Update</a>
                     </td>
                 </tr>
             </c:forEach>

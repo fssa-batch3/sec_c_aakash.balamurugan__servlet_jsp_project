@@ -24,7 +24,7 @@
 		} else {
 		%>
 
-		<a href="<%=request.getContextPath() %>/pages/html_pages/tips.jsp"> <spa n class="start">
+		<a href="<%=request.getContextPath() %>/pages/html_pages/tips.html"> <spa n class="start">
 			Started </span></a>
 		<%
 		}
