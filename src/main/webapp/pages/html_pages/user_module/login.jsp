@@ -36,19 +36,20 @@
 
         <div class="form__group field">
       <input type="email"
-      name="email" id="log_email" value="${email}" class="form__field" placeholder="Name" required="">
+      name="email" id="log_email" value="${email}" class="form__field" placeholder="Name" required >
       <label for="email" class="form__label">Email</label>
      
     </div>
       <div class="form__group field">
         <input type="password"
-        id="log_password" pattern="(?=^.{4,}(?=.*[A-Z])(?=.*[a-z]).*$"
-        name="password" value="${password}" class="form__field" placeholder="password" required="">
+        id="log_password"
+        name="password" value="${password}" class="form__field" placeholder="password" required >
         <label for="password" class="form__label">Password</label>
      </div>
   
     <p>
-      <a href="#">Forget Password</a>
+      <a href="#">Forget Password</a><br>
+      <a href="<%=request.getContextPath() %>/pages/html_pages/user_module/signup.jsp" >Not a User , SignUp</a>
     </p>
     <div class="btn">
       <button>submit</button>

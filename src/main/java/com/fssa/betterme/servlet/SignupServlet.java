@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fssa.betterme.exception.UserServiceException;
 import com.fssa.betterme.exception.UserValidationException;
@@ -35,32 +36,38 @@ public class SignupServlet extends HttpServlet {
 	        String username = request.getParameter("username");
 	        long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
 	        String email = request.getParameter("email");
-	        Gender gender = Gender.valueOf( request.getParameter("gender"));
+	        Gender gender = Gender.fromString( request.getParameter("gender"));
 	        String password = request.getParameter("password");
 	        
 	        String pass = null;
 			try {
-				System.out.println(PasswordHash.hashPass(password));
+				
 				pass = PasswordHash.hashPass(password);
 				
 			} catch (Exception e) {
-				
-				System.out.println(e.getMessage());
+			
 			}
 	       
 	
 
 	   
 	        User user = new User(username, email,pass,mobileNumber ,gender);
-	        
+	        PrintWriter out = response.getWriter();
 	     try {
-			boolean res =UserService.addUser(user);
-			PrintWriter out = response.getWriter();
+			boolean res =UserService.addUser(user);HttpSession session = request.getSession();
+			session.setAttribute("loggedInUser", user.getEmail());
+
+	
+			
 			out.print(res);
 			out.flush();
 			out.close();
 			 
 		} catch (UserValidationException | UserServiceException e) {
+			
+			out.print(e.getMessage());
+			out.flush();
+			out.close();
 			response.getWriter().append(e.getMessage());
 		}
 	 }

@@ -12,7 +12,7 @@
 <!-- Include other CSS files if needed -->
 </head>
 <body>
-	<jsp:include page="../header.jsp"></jsp:include>
+	
 	<div class="container mt-1">
 		<%-- Display error message if available --%>
 		<c:if test="${not empty error}">
@@ -174,9 +174,20 @@
 	<!-- Include Bootstrap JS (optional) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		
+		<script >
+		
+		const date = document.getElementById("date");
+
+		// let today = new Date().toISOString().split("T")[0];
+		const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+		  .toISOString()
+		  .split("T")[0];
+		date.setAttribute("min", today.plusDate(2));</script>
 </body>
 </html>

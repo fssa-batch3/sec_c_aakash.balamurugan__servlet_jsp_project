@@ -14,7 +14,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
+
 <h1>Event List</h1>
 
 <c:set var="eventList" value="${requestScope.eventList}" />

@@ -29,32 +29,32 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                        <a href="#" id="my_profile" class="active" autofocus>
+                        <a  id="my_profile" class="active" autofocus>
 <span class="fa-solid fa-circle-user"></span>
                             <span>My Profile</span>
 </a>
                     </li>
                     <li>
-                        <a href="#" id="my_events" class="active">
+                        <a  id="my_events" class="active">
 <span class="fa-solid fa-bag-shopping"></span>
                             <span>Events</span>
 </a>
                     </li>
                     <li>
-                        <a href="#" id="my_session" class="active">
+                        <a  id="my_session" class="active">
 <span class="fa-solid fa-calendar-check"></span>
                             <span>Session</span>
 </a>
                     </li>
                     <li>
-                        <a href="#" id="video_list" class="active">
+                        <a  id="video_list" class="active">
 <span ><i class="fa-solid fa-clapperboard"></i></span>
                             <span>Video list</span>
 </a>
                     </li>
                   
                     <li>
-                        <a href="#" id="logout" class="active">
+                        <a id="logout" class="active">
 <span class=
 "fa-solid fa-arrow-right-from-bracket fa-rotate-180"></span>
 

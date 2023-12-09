@@ -100,29 +100,32 @@ eventMoreImages.appendChild(eventMoreImages2);
     eventContent.appendChild(venueWrapper);
     container.appendChild(eventFlex);
     console.log(eventFlex);
-  console.log("poda sunni");
+
     // Add the container to the DOM
     body.appendChild(container);
     
-    document.querySelector("#total_amt").innerText = result[0].price;
-   
+    
+    document.getElementById("confirmBook").addEventListener("click", function(event) {
+  event.preventDefault();  // Prevent the form from submitting the traditional way
+    
+  const bookingUrl = `${location.origin}/betterme-web/BookingEvent?id=${eventId}`;
 
-    // Add event listener for booking button
-    document.getElementById("confirmBook").addEventListener("click", function () {
-        console.log("Booking button clicked");
-        ticket_div.style.display = "block";
-        document.querySelector("main").setAttribute("style", "filter:blur(8px)");
-        document.documentElement.style.overflow = 'hidden'; // Firefox, Chrome
-        document.body.scroll = "no"; // IE only
+  axios.post(bookingUrl)
+    .then(function(response) {
+      console.log(response);
+      if (response.data === true) {
+        alert("Event booked", "success");
+      } else {
+        alert("Email already registered", "error");
+      }
+    })
+    .catch(function(error) {
+      console.error("Error booking event:", error);
+      alert("Error booking event", "error");
     });
+});
+    
 }
-
-// Add external CSS stylesheet
-// You can create a separate CSS file (styles.css) and link it to your HTML file using a <link> tag.
-// Example: <link rel="stylesheet" type="text/css" href="styles.css">
-
-
-
 
 
 
@@ -139,7 +142,7 @@ async function fetchData() {
 		const info = await response.json();
 
 		// Now you can work with 'info'
-		console.log(info);
+		
 		displayinfo(info);
 	} catch (error) {
 		// Handle any errors that occurred during the fetch
@@ -151,44 +154,4 @@ async function fetchData() {
 fetchData();
 
 
-let close_div = document.querySelector(".close")
-
-
-close_div.addEventListener("click",function () {
-
-  ticket_div.style.display="none";
-  document.querySelector("main").removeAttribute("style")
-  document.documentElement.style.overflow = 'scroll';  // firefox, chrome
-  document.body.scroll = "yes"; // ie only
-})
-let ticket_div = document.querySelector(".ticketbox");
-
-
-
-
-document.getElementById("event_attendee_det").addEventListener("submit", function(event) {
-  event.preventDefault();  // Prevent the form from submitting the traditional way
-  
-
-  const attendee_email = document.getElementById("attendee_email").value;
-  
-  const bookingUrl = `${location.origin}/betterme-web/BookingEvent?id=${eventId}`;
-  const formData = new FormData();
-
-  formData.append("attendee_email", attendee_email);
-
-  axios.post(bookingUrl)
-    .then(function(response) {
-      console.log(response);
-      if (response.data === true) {
-        alert("Event booked", "success");
-      } else {
-        alert("Email already registered", "error");
-      }
-    })
-    .catch(function(error) {
-      console.error("Error booking event:", error);
-      alert("Error booking event", "error");
-    });
-});
 

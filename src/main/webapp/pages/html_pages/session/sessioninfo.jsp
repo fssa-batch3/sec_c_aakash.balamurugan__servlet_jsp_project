@@ -90,11 +90,7 @@
           </h2>
     
           <ul id="education_li">
-            <li>M.Sc in Psychology</li>
-    
-            <li>Diploma in Counseling Psychology</li>
-            
-            <li>BA in Psychology</li>
+          
           </ul>
          </div>
     
@@ -106,13 +102,7 @@
           </h2>
     
           <ul id="exprience_li">
-            <li>Worked in a leading multispeciality hospital in Manipal Karnataka</li>
-    
-            <li>Worked in a renowned mental health organisation for children in Karnataka</li>
-            
-            <li>Worked in a prestigious behavioural science setting in Delhi</li>
-  
-            <li>Worked in a reputed mental health organisation in Haryana</li>
+
           </ul>
         </div>
 

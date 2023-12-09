@@ -16,103 +16,53 @@
 </head>
 
 <body>
-	<div class="signup_form">
-		<form id="forms">
-
-			<div class="signup">
-				<h1>Sign Up for Free</h1>
-
-				<div class="flex1">
-					<div class="">
-						<div class="signup_inputfield_name">
-							<label for="UserName"> UserName </label>
-						</div>
-						<div class="signup_inputfield">
-							<input type="text" id="username" name="UserName"
-								pattern="[a-zA-Z ]+" required
-								title="First name should contain only alphabets" minlength="3">
-						</div>
-					</div>
-
-					<!-- Mobile Number -->
-					<div class="form-group">
-						<label for="mobileNumber">Mobile Number:</label> <input type="tel"
-							id="mobileNumber" class="form-control" name="mobileNumber"
-							pattern="[0-9]{10,12}" maxlength="10" required
-							title="enter a valid mobile Number">
-					</div>
-
-					<div class="">
-						<div class="signup_inputfield_name">
-							<label> Email Id </label>
-						</div>
-						<div class="signup_inputfield">
-							<input type="email" id="gmail" required>
-						</div>
-					</div>
-
-					<div class="">
-						<div class="signup_inputfield_name">
-							<label for="gender">Gender:</label>
-						</div>
-						<div class="signup_inputfield">
+	 <div class="signup_form">
+     
+      <form id="sig_form">
+        <h2>Hello User!!</h2>
+        <div class="form__group field">
+          <input type="text" class="form__field" placeholder="Name" id="username" pattern="[a-zA-Z ]{2,}+"  title="name should contains only alphabets" required>
+          <label for="name" class="form__label">Name</label>
+      </div>
+      
+      <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Name" id="mobileNumber" pattern="^[6-9]\d{9}$" title="Please enter a valid 10-digit mobile number" required maxlength="10">
+        <label for="name" class="form__label">Mobile Number</label>
+    </div>
 
 
-							<select class="form-control" name="gender"
-								style="height: 41px; width: 308px; margin: 10px;" id="gender"
-								required>
-								<option value="OTHER">Other</option>
-								<option value="MALE">Male</option>
-								<option value="FEMALE">Female</option>
-							</select>
+    <div class="form__group field">
+      <input type="email" class="form__field" placeholder="Name" id="gmail" required="">
+      <label for="name" class="form__label">Email</label>
+  </div>
+  <div class="form__group field">
+    <select  class="form__field" placeholder="Gender" id="gender" required>
+    <option value="Other">Other</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      
+    </select>
+     <label for="name" class="form__label">Gender</label>
+</div>
+<div class="form__group field">
+  <input type="password" class="form__field" placeholder="Name" id="password" 
+   pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" title="password should have atleast of one LowerCase , one UpperCase , one Special Character and a number and atleast 8 charaters" required="">
+  <label for="name" class="form__label">Password </label>
+</div>
+<div class="form__group field">
+  <input type="password" class="form__field" placeholder="Name" id="conpassword" required="">
+  <label for="name" class="form__label">Confirm Password</label>
+</div>
+<div>
+  <p>
+  <a href="<%=request.getContextPath() %>/pages/html_pages/user_module/login.jsp">
+  Already a User</a>
+</p>
 
-						</div>
-					</div>
-
-
-					<div class="field-wrap">
-						<div class="">
-							<div class="signup_inputfield_name">
-								<label> Password </label>
-							</div>
-							<div class="signup_inputfield">
-								<input type="password" id="password"
-									title="password should contain one capital letter ,one small letter , one symbol and a number  "
-									pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-									required>
-							</div>
-						</div>
-
-						<div class="field-wrap">
-							<div class="">
-								<div class="signup_inputfield_name">
-									<label> Check password </label>
-								</div>
-								<div class="signup_inputfield">
-									<input type="password" id="conpassword"
-									
-										required>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-
-					<div class="">
-						<div class="signup_a">
-							<p>
-								<a href="login.jsp">Already a user!!</a>
-							</p>
-						</div>
-						<div class="signup_btn">
-							<button class="button button-block" type="submit">SIgn
-								up</button>
-						</div>
-		</form>
-
-	</div>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</div>
+<div class="btn">
+  <button>submit</button>
+</div>	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
  
 	<script src="<%=request.getContextPath() %>/pages/Js_pages/user module/signup.js"></script>
 

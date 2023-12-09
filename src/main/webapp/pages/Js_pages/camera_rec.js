@@ -206,7 +206,7 @@ async function UploadUrl(VideoUrl){
 let send_vid = document.querySelector("#Save_btn");
 send_vid.addEventListener("click", async function () {
     await save_vid_fun()
-    alert("saved sucessfully");
+    
 
 });
 

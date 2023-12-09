@@ -1,4 +1,4 @@
-const form = document.getElementById("forms");
+const form = document.getElementById("sig_form");
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 	aakash();
@@ -6,12 +6,12 @@ form.addEventListener("submit", (e) => {
 
 function aakash() {
 
-	const First_name = document.getElementById("username").value;
-	const mobileNumber = document.getElementById("mobileNumber").value;
-	const email = document.getElementById("gmail").value;
-	const gender = document.getElementById("gender").value;
-	const password = document.getElementById("password").value;
-	const conpass = document.getElementById("conpassword").value;
+	const First_name = document.getElementById("username").value.trim();
+	const mobileNumber = document.getElementById("mobileNumber").value.trim();
+	const email = document.getElementById("gmail").value.trim();
+	const gender = document.getElementById("gender").value.trim();
+	const password = document.getElementById("password").value.trim();
+	const conpass = document.getElementById("conpassword").value.trim();
 
 
 
@@ -23,7 +23,7 @@ function aakash() {
             	console.log(response);
             	if(response.data==true){
                 	
-                	 window.location.href="./login.jsp";
+                	 window.location.href="./../../../index.jsp";
                  }
                  else{
                 	 alert( response.data); 
@@ -35,7 +35,7 @@ function aakash() {
 
 
 	} else {
-		alert("password are not same");
+		alert("The password is not match");
 	}
 
 

@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
+
     <div class="container">
         <h2>Event Search</h2>
         <form action="../ReadEventByDate" method="get">

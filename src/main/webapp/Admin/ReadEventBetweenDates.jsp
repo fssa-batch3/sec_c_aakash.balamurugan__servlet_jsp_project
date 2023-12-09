@@ -59,7 +59,7 @@
 </head>
 <body>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
+
     <div class="container">
         <h2>Event Search</h2>
         <form action="../ReadAllEventBetweenDate" method="post">

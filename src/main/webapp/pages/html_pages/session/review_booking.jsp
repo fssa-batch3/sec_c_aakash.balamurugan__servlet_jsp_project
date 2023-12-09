@@ -90,6 +90,7 @@
             name="number"
             placeholder="mobile number"
             maxlength="10"
+            readonly
           >
           <br >
   
@@ -101,6 +102,7 @@
             placeholder="name@gmail.com"
             value=""
             required="true"
+            readonly
           >
           <br >
   
@@ -119,6 +121,7 @@
       </div>
     </form>
     <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="<%=request.getContextPath() %>/pages/Js_pages/session/review_booking.js"></script>
   </body>
 </html>

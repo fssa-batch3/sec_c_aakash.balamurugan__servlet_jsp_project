@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.fssa.betterme.exception.ServiceException;
 import com.fssa.betterme.exception.EventValidationException;
 import com.fssa.betterme.model.Event;
-import com.fssa.betterme.model.Trainner;
-import com.fssa.betterme.service.EventHostService;
+import com.fssa.betterme.model.Trainer;
+import com.fssa.betterme.service.TrainerService;
 import com.fssa.betterme.service.EventService;
 
 /**
@@ -62,12 +62,12 @@ public class UpdateEventServlet extends HttpServlet {
 
 				DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 				LocalTime time = LocalTime.parse(timeStr, timeFormatter);
-
-				Trainner host = EventHostService.findTrainerByEmail(email);
+				TrainerService ser = new TrainerService();
+				Trainer host = ser.findTrainerByEmail(email);
 				Event validEvent = new Event(eventId, eventName, eventabt, eventDescription, eventAddress, date, time, price, imgUrl,isActive
 						,host);
-				
-				EventService.updateEvent(validEvent);
+				EventService eventSer = new EventService();
+				eventSer.updateEvent(validEvent);
 				response.sendRedirect("ReadAllEvent");
 
 			} catch (EventValidationException | ServiceException | IOException e) {

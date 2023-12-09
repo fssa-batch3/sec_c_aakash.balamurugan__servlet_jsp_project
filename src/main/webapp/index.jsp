@@ -150,11 +150,11 @@
 			<div class="user">
 				<div class="flex">
 					<div class="">
-						<img src="assets/img/home/stevejobs.jpeg" alt="stevejobs">
+						<img src="https://www.shutterstock.com/image-vector/man-icon-vector-260nw-1040084344.jpg" alt="profile img">
 					</div>
 					<div class="">
-						<h4>Steve jobs</h4>
-						<h6>@apple.inc</h6>
+						<h4>Pranaw</h4>
+						<h6>@pranaw</h6>
 					</div>
 				</div>
 				<p>I like BetterMe. It's nice to be able to say what I need to,
@@ -165,11 +165,11 @@
 			<div class="user">
 				<div class="flex">
 					<div class="">
-						<img src="assets/img/home/J_Jayalalithaa.jpg" alt="jayalaitha">
+						<img src="https://www.shutterstock.com/image-vector/man-icon-vector-260nw-1040084344.jpg" alt="profile img">
 					</div>
 					<div class="">
-						<h4>Jayalalithaa</h4>
-						<h6>@Amma</h6>
+						<h4>Vishali</h4>
+						<h6>@vishali</h6>
 					</div>
 				</div>
 				<p>I'm incredibly grateful for receiving the best help right
@@ -179,11 +179,11 @@
 			<div class="user">
 				<div class="flex">
 					<div class="">
-						<img src="assets/img/home/mahesh.jpeg" alt="mahesh">
+						<img src="https://www.shutterstock.com/image-vector/man-icon-vector-260nw-1040084344.jpg" alt="profile img">
 					</div>
 					<div class="">
-						<h4>Mahesh</h4>
-						<h6>@erode.mahesh
+						<h4>Balaji</h4>
+						<h6>@balaji</h6>
 					</div>
 				</div>
 				<p>Thank god for talkspace therapy. Sending my therapist

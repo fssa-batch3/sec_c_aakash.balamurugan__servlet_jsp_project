@@ -11,7 +11,7 @@
   </welcome-file-list>
 
   <session-config>
-		<session-timeout>20</session-timeout> <!-- Number of minutes -->
+		<session-timeout>60</session-timeout> <!-- Number of minutes -->
 	</session-config>
 	
 	<error-page>
